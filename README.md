@@ -1,0 +1,126 @@
+# TransportApp
+
+Приложение **TransportApp** предназначено для управления транспортными средствами, водителями и маршрутами. Реализовано на **Java** с использованием **Spring Boot** и **SQLite**. Фронтенд — простая HTML/JS страница.
+
+---
+
+## Описание проекта
+
+TransportApp позволяет:  
+
+- Управлять транспортными средствами: добавление, просмотр, удаление.  
+- Управлять водителями: добавление, просмотр, удаление.  
+- Управлять маршрутами: создание маршрутов, назначение транспорта и водителей, просмотр, удаление.  
+
+Проект построен с использованием объектно-ориентированного подхода и слоистой архитектуры:  
+**Controller → Service → Repository → Database**.
+
+---
+
+## Структура проекта
+
+TransportApp/
+├── build.gradle
+├── settings.gradle
+├── gradlew
+├── gradlew.bat
+├── .gitignore
+├── transport.db
+├── gradle/
+│ └── wrapper/
+├── src/
+│ ├── main/
+│ │ ├── java/com/company/transportapp/
+│ │ │ ├── TransportAppApplication.java
+│ │ │ ├── controller/
+│ │ │ │ ├── VehicleController.java
+│ │ │ │ ├── DriverController.java
+│ │ │ │ └── RouteController.java
+│ │ │ ├── model/
+│ │ │ │ ├── Vehicle.java
+│ │ │ │ ├── Driver.java
+│ │ │ │ └── Route.java
+│ │ │ └── repository/
+│ │ │ ├── DatabaseConnection.java
+│ │ │ ├── VehicleRepository.java
+│ │ │ ├── DriverRepository.java
+│ │ │ └── RouteRepository.java
+│ │ └── resources/
+│ │ ├── application.properties
+│ │ └── static/
+│ │ ├── index.html
+│ │ ├── app.js
+│ │ └── styles.css
+│ └── test/java/com/company/transportapp/
+│ └── TransportAppApplicationTests.java
+└── build/
+
+
+---
+
+## Технологии
+
+- **Java 17**  
+- **Spring Boot 3.5.7**  
+- **SQLite** (как встроенная база данных)  
+- **HTML / CSS / JS** (для фронтенда)  
+- **JDBC / Spring JDBC** (для работы с БД)
+
+---
+
+## Основные возможности
+
+### Управление транспортом (Vehicle)
+- Добавление, просмотр и удаление транспортных средств.  
+- Хранение информации: марка, модель, номер, вместимость.  
+- REST API:
+  - `GET /api/vehicles` — получить все транспортные средства  
+  - `POST /api/vehicles` — добавить новое  
+  - `DELETE /api/vehicles/{id}` — удалить по ID  
+
+### Управление водителями (Driver)
+- Добавление, просмотр и удаление водителей.  
+- Хранение информации: имя, фамилия, номер удостоверения, категория прав.  
+- REST API:
+  - `GET /api/drivers` — получить всех водителей  
+  - `POST /api/drivers` — добавить нового  
+  - `DELETE /api/drivers/{id}` — удалить по ID  
+
+### Управление маршрутами (Route)
+- Создание маршрутов с назначением транспорта и водителя.  
+- Просмотр маршрутов и удаление.  
+- REST API:
+  - `GET /api/routes` — получить все маршруты  
+  - `POST /api/routes` — создать маршрут  
+  - `DELETE /api/routes/{id}` — удалить маршрут  
+
+---
+
+## Архитектура
+
+- **Модель (Model):** POJO-классы `Vehicle`, `Driver`, `Route`. Инкапсулируют данные сущностей.  
+- **Репозиторий (Repository):** Классы для работы с базой (`VehicleRepository`, `DriverRepository`, `RouteRepository`). Выполняют CRUD-операции через JDBC.  
+- **Сервисный слой (Service):** Реализует бизнес-логику и валидацию данных.  
+- **Контроллеры (Controller):** Обрабатывают HTTP-запросы, взаимодействуют с сервисами.  
+
+> Используется **композиция**: контроллеры включают сервисы, сервисы — репозитории. Наследование минимально, основной акцент на разделении ответственности.
+
+---
+
+## Работа с базой данных
+
+- Используется **SQLite**.  
+- Подключение через `DatabaseConnection.java`.  
+- Конфигурация в `application.properties`.  
+- Таблицы: `vehicles`, `drivers`, `routes`.  
+- Чтение и запись через репозитории (`findAll`, `findById`, `add`, `delete`).  
+
+---
+
+## Запуск проекта
+
+1. Клонировать репозиторий.  
+2. Убедиться, что установлен **Java 17** и **Gradle**.  
+3. Запустить приложение:
+```bash
+./gradlew bootRun
