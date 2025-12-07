@@ -1,0 +1,15 @@
+:root{--bg:#f7f9fc;--card:#fff;--accent:#2b6cb0}
+*{box-sizing:border-box}
+body{font-family:Segoe UI,Roboto,Arial;background:var(--bg);margin:0;color:#222}
+header{background:var(--card);padding:12px 20px;display:flex;align-items:center;gap:20px;border-bottom:1px solid #e6eef9}
+header h1{margin:0;font-size:18px}
+nav a{color:var(--accent);text-decoration:none;margin-right:10px}
+main#app{padding:20px}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.list{display:grid;gap:8px;margin-top:12px}
+.item{padding:10px;border-radius:6px;border:1px solid #eef4fb;display:flex;justify-content:space-between;align-items:center}
+.controls{display:flex;gap:8px}
+form.inline{display:flex;gap:8px;flex-wrap:wrap}
+input,select{padding:6px;border:1px solid #d8e8fb;border-radius:6px}
+button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+button.ghost{background:#f3f6fb;color:var(--accent)}
