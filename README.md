@@ -17,46 +17,6 @@ TransportApp позволяет:
 
 ---
 
-## Структура проекта
-
-TransportApp/
-├── build.gradle
-├── settings.gradle
-├── gradlew
-├── gradlew.bat
-├── .gitignore
-├── transport.db
-├── gradle/
-│ └── wrapper/
-├── src/
-│ ├── main/
-│ │ ├── java/com/company/transportapp/
-│ │ │ ├── TransportAppApplication.java
-│ │ │ ├── controller/
-│ │ │ │ ├── VehicleController.java
-│ │ │ │ ├── DriverController.java
-│ │ │ │ └── RouteController.java
-│ │ │ ├── model/
-│ │ │ │ ├── Vehicle.java
-│ │ │ │ ├── Driver.java
-│ │ │ │ └── Route.java
-│ │ │ └── repository/
-│ │ │ ├── DatabaseConnection.java
-│ │ │ ├── VehicleRepository.java
-│ │ │ ├── DriverRepository.java
-│ │ │ └── RouteRepository.java
-│ │ └── resources/
-│ │ ├── application.properties
-│ │ └── static/
-│ │ ├── index.html
-│ │ ├── app.js
-│ │ └── styles.css
-│ └── test/java/com/company/transportapp/
-│ └── TransportAppApplicationTests.java
-└── build/
-
-
----
 
 ## Технологии
 
